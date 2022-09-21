@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Client extends Personne implements Operation_Compte {
-    public Client(String nom, String prenom,Integer age, String identifiantClient) {
-        super(nom, prenom,age);
+    public Client(String nom, String prenom, Integer age, String identifiantClient) {
+        super(nom, prenom, age);
         this.identifiantClient = identifiantClient;
     }
 
@@ -28,10 +28,10 @@ public class Client extends Personne implements Operation_Compte {
     }
 
     public void setListeCompte(Compte compte) {
-        this.listeCompte.add(compte) ;
+        this.listeCompte.add(compte);
     }
 
-    protected  List listeCompte;
+    protected List<Compte> listeCompte = new ArrayList<Compte>();
 
     @Override
     public void affichageSolde(Compte compte) {
@@ -40,14 +40,15 @@ public class Client extends Personne implements Operation_Compte {
 
     @Override
     public double retraitArgent(Double somme, Compte compte) {
-        if (compte instanceof CompteCourant){
-        if (compte.getSolde() > 0) {
-            compte.setSolde(compte.getSolde()-somme);
-        }
-        else System.out.println("solde insufisant");
-        return compte.getSolde();
-    } else System.out.println(
-            "on ne peut retirer de l'argent que d'un compte courant"
+        if (compte instanceof CompteCourant) {
+            if (compte.getSolde() > 0) {
+                //   compte.setSolde(compte.getSolde()-somme);
+                ((CompteCourant) compte).retirerArgent(somme);
+
+            } else System.out.println("solde insufisant");
+            return compte.getSolde();
+        } else System.out.println(
+                "on ne peut retirer de l'argent que d'un compte courant"
         );
         return compte.getSolde();
     }
@@ -55,7 +56,7 @@ public class Client extends Personne implements Operation_Compte {
 
     @Override
     public double versementArgent(Double somme, Compte compte) {
-        compte.setSolde(compte.getSolde()+somme);
+        compte.setSolde(compte.getSolde() + somme);
         return compte.getSolde();
     }
 

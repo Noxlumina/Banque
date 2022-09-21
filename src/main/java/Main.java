@@ -18,7 +18,7 @@ public class Main {
         Directeur directeur = new Directeur("Martez","Carolina",40,"002","002","001");
 
 //création des compte
-        Compte compteCourant = new CompteCourant("courant1",1500.0,client);
+        Compte compteCourant = new CompteCourant("courant1",1500.0,client,0.0);
         Compte compteEpargne = new CompteEpargne("epargne1",500.0,client);
         Compte compteRemunere = new CompteRemunere("remunere",1000.0,client);
         //méthode pour afficher, retirer et verser de l'argent d'un compte

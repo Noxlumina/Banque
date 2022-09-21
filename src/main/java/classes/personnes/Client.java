@@ -42,7 +42,9 @@ public class Client extends Personne implements Operation_Compte {
     public double retraitArgent(Double somme, Compte compte) {
         if (compte instanceof CompteCourant){
         if (compte.getSolde() > 0) {
-            compte.setSolde(compte.getSolde()-somme);
+         //   compte.setSolde(compte.getSolde()-somme);
+            ((CompteCourant) compte).retirerArgent(somme);
+
         }
         else System.out.println("solde insufisant");
         return compte.getSolde();

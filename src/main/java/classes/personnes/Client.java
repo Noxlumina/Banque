@@ -61,7 +61,10 @@ public class Client extends Personne implements Operation_Compte {
     }
 
     @Override
-    public void virementArgent(/*Double somme, Compte compte_origine, Compte compte_destination*/) {
-
+    public void virementArgent(Double somme, Compte compte_origine, Compte compte_destination) {
+        compte_origine.getSolde();
+        compte_origine.setSolde(compte_origine.getSolde() - somme);
+        compte_destination.setSolde(compte_destination.getSolde() + somme);
+        compte_destination.getSolde();
     }
 }

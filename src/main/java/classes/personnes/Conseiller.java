@@ -63,6 +63,7 @@ public class Conseiller extends Client implements Operation_Compte {
 
     public void fermetureCompte(Client client, Banques banques) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Entrer l'iddentifiant du compte à fermer");
         String identifiantCompteFerme = scanner.next();
         for (int j = 0; j <= client.listeCompte.size(); j++) {
             if (client.listeCompte.get(j).getIdentifiantCompte().equals(identifiantCompteFerme)) {

@@ -10,7 +10,7 @@ public interface Operation_Compte {
 
     public double versementArgent(Double somme, Compte compte);
 
-    public void virementArgent(/*Double somme, Compte compte_origine,Compte compte_destination*/);
+    public void virementArgent(Double somme, Compte compte_origine,Compte compte_destination);
 
 
 }
